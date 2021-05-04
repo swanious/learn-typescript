@@ -1,5 +1,5 @@
 // api url
-var url = 'https://jsonplaceholder.typicode.com/users';
+var url = 'https://jsonplaceholder.typicode.com/users/1';
 
 // dom
 var username = document.querySelector('#username');
@@ -9,9 +9,33 @@ var address = document.querySelector('#address');
 // user data
 var user = {};
 
+function fetchUser() {
+  return axios.get(url);
+}
+
+// Jsdoc
+// typeof를 통해 타입 선언 /property는 해당 타입의 자식을 의미한다.
+
+/**
+ * @typeof {object} Address
+ * @property {string} street
+ * @property {string} city
+ */
+
+/**
+ * @typeof {object} User
+ * @property {string} name
+ * @property {string} email
+ * @property {Address} address
+ */
+
+// <User> 는 제네릭으로 'Promise에 User는 내용이 담길 것'을 선언하는 것이다.
+/**
+ * @returns {Promise<User>}
+ */
+
 function startApp() {
-  axios
-    .get(url)
+  fetchUser()
     .then(function (response) {
       // console.log(response);
       user = response.data;
