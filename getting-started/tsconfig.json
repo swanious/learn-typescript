@@ -2,6 +2,6 @@
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true, // @ts-check
-    "noImplicitAny": true // 모든 변수에 타입을 선언해야한다는 옵션(any라도)
+    "noImplicitAny": true // 모든 변수에 타입을 선언해야한다는 옵션(적어도 any)
   }
 }
