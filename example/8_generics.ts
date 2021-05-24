@@ -68,3 +68,42 @@ interface Dropdown<T> {
 }
 
 const obj: Dropdown<number> = { value: 10, selected: false }
+
+
+// 제네릭의 타입 제한
+// function logTextLength<T>(text: T[]):T[] {
+//   console.log(text.length)
+//   text.forEach(function (text) {
+//     console.log(text);
+//   })
+//   return text;
+// }
+
+// logTextLength<string>(['hi', 'abc']);
+
+
+// 제네릭 타입 제한 2 - 정의된 타입 이용하기
+// interface LengthType {
+//   length : number;
+// }
+
+// function logTextLength<T extends LengthType>(text: T): T {
+//   text.length;
+//   return text;
+// }
+// logTextLength(10);
+
+
+// 제네릭 타입 제한 3 - keyof
+// 인터페이스에 지정된 타입 중 키(keyof)만 타입으로 선언할 수 있음
+interface ShoppingItem {
+  name: string;
+  price: number;
+  stock: number;
+}
+
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
+  return itemOption;
+}
+
+getShoppingItemOption("name")
