@@ -51,9 +51,9 @@ interface Person {
 // 인터섹션
 // Developer와 Person이 가진 모든 속성 사용할 수 있다.
 function askSomeone(someone: Developer & Person) {
-  someone.name; // O
-  someone.skill; // O
-  someone.age; // O
+  // someone.name; // O
+  // someone.skill; // O
+  // someone.age; // O
 }
 
 // X --> Developer와 Person의 속성을 모두 써야하므로 age를 써줘야함
